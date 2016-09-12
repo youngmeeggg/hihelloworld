@@ -36,7 +36,7 @@ bool iscircle2right(const double x, const double y)
 }
 
 
-void main()
+int main()
 {
 	FILE *of = fopen("dumbel1.txt", "w");
 
@@ -51,9 +51,7 @@ void main()
 			fprintf(of, "%f ,%f\n", x, y);
 		}
 	}
-	fclose(of);
 
-	FILE *ef = fopen("dumbel2.txt", "w");
 	for (int i = 0; i < 10000; i++)
 	{
 		double x = getRANDOMNUMBER(2.0, 3.0);
@@ -61,18 +59,16 @@ void main()
 
 		if (iscircle2right(x, y) == true)
 		{
-			fprintf(ef, "%f ,%f\n", x, y);
+			fprintf(of, "%f ,%f\n", x, y);
 		}
 	}
-	fclose(ef);
 
-	FILE *sf = fopen("dumbel3.txt", "w");
 	for (int i = 0; i < 10000; i++)
 	{
-		double x_s = getRANDOMNUMBER(1.0, 2.0);
-		double y_s = getRANDOMNUMBER(0.4, 0.8);
+		double x_s = getRANDOMNUMBER(0.3, 2.7);
+		double y_s = getRANDOMNUMBER(0.3, 0.7);
 
-		fprintf(sf, "%f, %f\n", x_s, y_s);
+		fprintf(of, "%f, %f\n", x_s, y_s);
 	}
-	fclose(sf);
+	fclose(of);
 }
